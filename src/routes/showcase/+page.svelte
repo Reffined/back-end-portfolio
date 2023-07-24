@@ -3,6 +3,7 @@
 	import ShowcasePreview from '$lib/ShowcasePreview.svelte';
 	import chat from '$lib/images/chat.png';
 	import threejs from '$lib/images/threeJs.png';
+	import { browser } from '$app/environment';
 </script>
 
 <Navbar />

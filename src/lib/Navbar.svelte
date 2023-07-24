@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-
-	let scrollY = window.scrollY;
-	let scrollHeight = document.documentElement.scrollHeight;
-	let innerH = window.innerHeight;
+	import { browser } from '$app/environment';
+	let scrollY: number;
+	let scrollHeight: number;
+	let innerH: number;
 	let comp: HTMLElement;
 	let mounted = false;
 	let isFirstLoad = true;
@@ -12,24 +12,27 @@
 	onMount(() => {
 		comp = document.getElementById('nav-idle') as HTMLElement;
 		mounted = true;
-	});
-
-	addEventListener('scroll', () => {
-		scrollY = Math.round(window.scrollY);
-		scrollHeight = Math.round(document.documentElement.scrollHeight);
-	});
-
-	addEventListener('resize', () => {
 		innerH = Math.round(window.innerHeight);
 	});
 
-	$: if (scrollY < scrollHeight - innerH - 20 && mounted && isFirstLoad) {
+	if (browser) {
+		addEventListener('scroll', () => {
+			scrollY = Math.round(window.scrollY);
+			scrollHeight = Math.round(document.documentElement.scrollHeight);
+		});
+
+		addEventListener('resize', () => {
+			innerH = Math.round(window.innerHeight);
+		});
+	}
+
+	$: if (scrollY < scrollHeight - innerH - 20 && mounted && isFirstLoad && browser) {
 		comp.setAttribute('id', 'nav-idle');
 		isFirstLoad = false;
-	} else if (scrollY >= scrollHeight - innerH - 20 && mounted && !isFirstLoad) {
+	} else if (scrollY >= scrollHeight - innerH - 20 && mounted && !isFirstLoad && browser) {
 		comp.setAttribute('id', 'nav');
 		isAtTheBottom = true;
-	} else if (mounted && !isFirstLoad && isAtTheBottom) {
+	} else if (mounted && !isFirstLoad && isAtTheBottom && browser) {
 		comp.setAttribute('id', 'nav-anim');
 		isAtTheBottom = false;
 	}

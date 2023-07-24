@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { browser } from '$app/environment';
 	import Navbar from '$lib/Navbar.svelte';
 </script>
 
