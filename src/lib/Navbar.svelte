@@ -36,8 +36,8 @@
 </script>
 
 <div id="nav-idle">
-	<h4>Home</h4>
-	<h4>Showcases</h4>
+	<a href="/">Home</a>
+	<a href="/showcase">Showcases</a>
 	<h4>Contact</h4>
 </div>
 
@@ -109,5 +109,18 @@
 		font-family: 'Noto Sans Cypro Minoan', sans-serif;
 		text-align: justify;
 		margin: 10pt;
+	}
+
+	a {
+		color: white;
+		font-family: 'Noto Sans Cypro Minoan', sans-serif;
+		font-weight: bold;
+		text-align: justify;
+		margin: 10pt;
+		text-decoration: none;
+	}
+
+	a:hover {
+		text-shadow: 2px 2px 5px rgb(41, 43, 43);
 	}
 </style>
