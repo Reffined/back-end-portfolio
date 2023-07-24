@@ -2,10 +2,13 @@
 	export let src: string;
 	export let text: string;
 	export let alt: string;
+	export let href: string;
 </script>
 
 <div class="container">
-	<img {src} {alt} />
+	<a {href} target="_blank">
+		<img {src} {alt} />
+	</a>
 	<p>{text}</p>
 </div>
 
@@ -15,6 +18,10 @@
 		flex-direction: column;
 		align-items: center;
 		margin: 100px 0px;
+	}
+
+	a {
+		text-align: center;
 	}
 
 	p {
