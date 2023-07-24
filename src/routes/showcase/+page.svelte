@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Navbar from '$lib/Navbar.svelte';
+	import ShowcasePreview from '$lib/ShowcasePreview.svelte';
 	import chat from '$lib/images/chat.png';
 </script>
 
@@ -7,10 +8,13 @@
 
 <div class="layout">
 	<div class="column">
-		<img src={chat} alt="chat" />
+		<ShowcasePreview src={chat} alt="chat" text="this is a simple chat app built with WS" />
 	</div>
 	<div class="column">
-		<img src={chat} alt="chat" />
+		<ShowcasePreview src={chat} alt="chat" text="this is a simple chat app built with WS" />
+	</div>
+	<div class="column">
+		<ShowcasePreview src={chat} alt="chat" text="this is a simple chat app built with WS" />
 	</div>
 </div>
 
@@ -20,15 +24,10 @@
 		flex-direction: row;
 	}
 
-	img {
-		max-width: 80%;
-		object-fit: cover;
-		border-radius: 15px;
-	}
-
 	.column {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+		align-content: center;
 	}
 </style>
