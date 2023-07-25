@@ -18,7 +18,12 @@
 		/>
 	</div>
 	<div class="column">
-		<ShowcasePreview src={chat} alt="chat" text="this is a simple chat app built with WS" href="" />
+		<ShowcasePreview
+			src={chat}
+			alt="chat"
+			text="this is a simple chat app built with WS"
+			href="/showcase/chat"
+		/>
 	</div>
 	<div class="column">
 		<ShowcasePreview src={chat} alt="chat" text="this is a simple chat app built with WS" href="" />
